@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mapa Interativo · Mercado de Origem</title>
+  <meta name="description" content="Encontre lojas, serviços e caminhos no Mercado de Origem: mapa interativo por andar, busca por categoria e rotas.">
+  <meta name="theme-color" content="#1A2819">
+  <meta property="og:title" content="Mapa Interativo · Mercado de Origem">
+  <meta property="og:description" content="Design, Gastronomia e Cultura. Encontre lojas, serviços e trace rotas pelo Mercado.">
+  <meta property="og:image" content="assets/img/espaco/hero.jpg">
+  <link rel="icon" href="assets/img/simbolo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ BOAS-VINDAS / DESCANSO DE TELA ============ -->
+  <section id="welcome" class="welcome" aria-label="Boas-vindas">
+    <div class="w-slides" id="wSlides"></div>
+    <div class="w-veil"></div>
+    <div class="w-content">
+      <img class="w-symbol" src="assets/img/simbolo.png" alt="">
+      <p class="w-kicker">Bem-vindo ao</p>
+      <h1 class="w-title">Mercado de <em>Origem</em></h1>
+      <p class="w-sub">Design, Gastronomia e Cultura · Belo Horizonte</p>
+      <div class="w-stats" id="wStats"></div>
+      <button class="w-cta" id="wStart">
+        <span class="w-ring"></span>
+        <span class="w-cta-in">Toque para explorar o Mercado</span>
+      </button>
+      <p class="w-or">ou vá direto para</p>
+      <div class="w-quick" id="wQuick"></div>
+    </div>
+    <p class="w-foot">Mapa interativo · simulação para apresentação</p>
+  </section>
+
+  <!-- ============ APLICATIVO ============ -->
+  <div class="app" id="app">
+    <aside class="side">
+      <header class="brand">
+        <button class="brand-home" id="homeBtn" aria-label="Voltar ao início">
+          <img src="assets/img/simbolo.png" alt="" class="brand-symbol">
+          <span class="brand-txt"><strong>Mercado de Origem</strong><small>Belo Horizonte · MG</small></span>
+        </button>
+        <div class="brand-status">
+          <span class="clock" id="clock">--:--</span>
+          <span class="open" id="openStatus"></span>
+        </div>
+      </header>
+
+      <div class="search">
+        <span class="search-ic" data-icon="search"></span>
+        <input id="q" type="search" autocomplete="off" placeholder="Buscar loja, produto ou serviço" aria-label="Buscar">
+        <button class="search-x" id="qx" aria-label="Limpar busca" data-icon="x"></button>
+      </div>
+
+      <nav class="chips" id="chips" aria-label="Categorias"></nav>
+
+      <section class="sheet" id="sheet">
+        <div class="sheet-grip" id="grip"></div>
+        <div class="view view-list" id="viewList"></div>
+        <div class="view view-detail" id="viewDetail" hidden></div>
+        <p class="disclaimer">Simulação para apresentação · posições ilustrativas, ainda sem a planta oficial do Mercado. <a href="estatico.html" style="color:#d4b87a;text-decoration:underline">Ver versão estática (placas)</a></p>
+      </section>
+    </aside>
+
+    <main class="mapzone" id="mapzone">
+      <div class="floorhead" id="floorhead"></div>
+      <div class="stage" id="stage">
+        <div class="zoomer" id="zoomer"><div class="building" id="building"></div></div>
+      </div>
+      <nav class="floorbar" id="floorbar" aria-label="Andares"></nav>
+      <div class="mapctl">
+        <button id="b3d" class="ctl ctl-wide" aria-label="Alternar vista 3D"><span data-icon="cube"></span><b>Vista 3D</b></button>
+        <button id="bLoc" class="ctl" aria-label="Você está aqui" data-icon="locate"></button>
+        <button id="bIn" class="ctl" aria-label="Aproximar" data-icon="plus"></button>
+        <button id="bOut" class="ctl" aria-label="Afastar" data-icon="minus"></button>
+      </div>
+      <div class="legend" id="legend"></div>
+      <div class="routebar" id="routebar" hidden></div>
+      <div class="toast" id="toast"></div>
+    </main>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

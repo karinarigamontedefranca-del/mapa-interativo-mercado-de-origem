@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Totem estático · Mercado de Origem</title>
+  <link rel="icon" href="assets/img/simbolo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    :root { --verde: #1A2819; --verde-vivo: #3A4D39; --palha: #F2EFE9; --palha-f: #F5EBDD; --go: #B68D40; --go-lt: #cfa355; --tinta: #2A2620; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #2a3329; font-family: 'DM Sans', sans-serif; color: var(--tinta); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .ic { width: 1.2em; height: 1.2em; flex: none; }
+
+    /* barra de ferramentas (só na tela) */
+    .bar { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 14px 24px; background: var(--verde); color: var(--palha); box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+    .bar img { width: 34px; height: 34px; }
+    .bar h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 20px; margin-right: auto; line-height: 1.1; }
+    .bar h1 small { display: block; font-family: 'DM Sans'; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #d4b87a; margin-top: 3px; }
+    .bar button, .bar a { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 99px; border: 1px solid rgba(242,239,233,.25); background: none; color: inherit; font: 500 14px 'DM Sans'; cursor: pointer; }
+    .bar .gold { background: var(--go); border-color: var(--go); color: var(--verde); font-weight: 600; }
+
+    .wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 40px 20px 80px; }
+
+    /* ===== placa do totem (proporção 9:16, como uma tela/placa vertical) ===== */
+    .placa { width: min(100%, 720px); aspect-ratio: 9 / 16; container-type: inline-size; background: var(--palha); border-radius: 1.4cqw; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 30px 80px rgba(0,0,0,.4); position: relative; }
+    .p-head { background: var(--verde); color: var(--palha); padding: 3.6cqw 5cqw; display: flex; align-items: center; gap: 2.6cqw; position: relative; }
+    .p-head img { width: 8cqw; height: 8cqw; }
+    .p-head .t { flex: 1; line-height: 1.1; }
+    .p-head .t b { display: block; font-family: 'Playfair Display', serif; font-weight: 400; font-size: 4.8cqw; }
+    .p-head .t small { display: block; font-size: 1.9cqw; letter-spacing: .3em; text-transform: uppercase; color: #d4b87a; margin-top: 1cqw; }
+    .p-head .num { width: 11cqw; height: 11cqw; border-radius: 50%; background: var(--go); color: var(--verde); display: grid; place-items: center; font: 600 4.6cqw 'DM Sans'; }
+    .p-title { padding: 3.4cqw 5cqw .5cqw; }
+    .p-title .k { font-size: 1.8cqw; letter-spacing: .32em; text-transform: uppercase; color: var(--go); font-weight: 700; }
+    .p-title h2 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 6.2cqw; line-height: 1.05; color: var(--verde); margin: .8cqw 0 .6cqw; }
+    .p-title h2 em { color: var(--go); }
+    .p-title p { font-size: 2.3cqw; color: #5a6a59; }
+    .p-map { padding: 0 2cqw; }
+    .p-map svg { width: 100%; height: auto; display: block; }
+    .p-body { flex: 1; display: flex; flex-direction: column; gap: 2.4cqw; padding: .5cqw 5cqw 0; min-height: 0; }
+    .lg { columns: 3; column-gap: 3cqw; }
+    .lg h4 { break-after: avoid; display: flex; align-items: center; gap: 1cqw; font-size: 1.45cqw; letter-spacing: .18em; text-transform: uppercase; color: var(--verde-vivo); margin: 1cqw 0 .6cqw; }
+    .lg h4:first-child { margin-top: 0; }
+    .lg h4 i { width: 1.6cqw; height: 1.6cqw; border-radius: 50%; flex: none; }
+    .lg li { list-style: none; display: flex; align-items: center; gap: 1cqw; font-size: 1.7cqw; line-height: 1.2; padding: .3cqw 0; break-inside: avoid; }
+    .lg li b { flex: none; min-width: 4.4cqw; height: 2.6cqw; padding: 0 .6cqw; border-radius: 99px; display: grid; place-items: center; color: #fff; font-size: 1.35cqw; font-weight: 700; }
+    .bottom { display: grid; grid-template-columns: 1.25fr 1fr; gap: 4cqw; margin-top: auto; }
+    .lg-cat { margin-bottom: 2.2cqw; break-inside: avoid; }
+    .lg-cat h4 { display: flex; align-items: center; gap: 1.2cqw; font-size: 1.75cqw; letter-spacing: .2em; text-transform: uppercase; color: var(--verde-vivo); margin-bottom: 1cqw; }
+    .lg-cat h4 i { width: 2cqw; height: 2cqw; border-radius: 50%; }
+    .lg-list { columns: 2; column-gap: 3cqw; }
+    .lg-cat li { list-style: none; display: flex; align-items: center; gap: 1.3cqw; font-size: 2.05cqw; line-height: 1.25; padding: .45cqw 0; break-inside: avoid; }
+    .lg-cat li b { flex: none; min-width: 5.2cqw; height: 3.2cqw; padding: 0 .8cqw; border-radius: 99px; display: grid; place-items: center; color: #fff; font-size: 1.6cqw; font-weight: 700; }
+    .bottom h4 { font-size: 1.75cqw; letter-spacing: .2em; text-transform: uppercase; color: var(--verde-vivo); margin-bottom: 1.2cqw; }
+    .serv { display: grid; grid-template-columns: 1fr 1fr; gap: .9cqw 2cqw; }
+    .serv span { display: flex; align-items: center; gap: 1.1cqw; font-size: 1.6cqw; }
+    .serv i { width: 3.2cqw; height: 3.2cqw; border-radius: 50%; background: var(--verde); color: var(--palha-f); display: grid; place-items: center; flex: none; }
+    .serv i.go { background: var(--go); color: #fff; }
+    .serv i.red { background: #e05a47; border: .45cqw solid #fff; box-shadow: 0 0 0 .3cqw #e05a47; width: 2.6cqw; height: 2.6cqw; margin: 0 .3cqw; }
+    .serv .ic { width: 2cqw; height: 2cqw; }
+    /* corte do prédio */
+    .corte { display: flex; flex-direction: column; gap: .6cqw; }
+    .corte div { display: flex; align-items: center; gap: 1.2cqw; padding: .7cqw 1.2cqw; border-radius: 1cqw; background: #e8e2d6; font-size: 1.45cqw; line-height: 1.2; }
+    .corte div b { flex: none; width: 3.4cqw; height: 3.4cqw; border-radius: 50%; display: grid; place-items: center; background: var(--verde); color: var(--palha); font-size: 1.45cqw; }
+    .corte div.on { background: var(--verde); color: var(--palha); }
+    .corte div.on b { background: var(--go); color: var(--verde); }
+    .p-foot { display: flex; justify-content: space-between; align-items: center; padding: 2.4cqw 5cqw 2.8cqw; font-size: 1.6cqw; letter-spacing: .2em; text-transform: uppercase; color: #8a8a7c; }
+    .p-foot b { color: var(--verde-vivo); font-weight: 600; }
+
+    @media print {
+      @page { size: 1080px 1920px; margin: 0; }
+      body { background: #fff; }
+      .bar { display: none; }
+      .wrap { padding: 0; gap: 0; display: block; }
+      .placa { width: 1080px; height: 1920px; border-radius: 0; box-shadow: none; break-after: page; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <img src="assets/img/simbolo.png" alt="">
+    <h1>Totem estático · placas por andar<small>Versão para impressão · 1080 × 1920</small></h1>
+    <span id="jump"></span>
+    <button class="gold" onclick="print()" id="printBtn"></button>
+    <a href="index.html" id="backBtn"></a>
+  </div>
+  <div class="wrap" id="wrap"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/map.js"></script>
+  <script>
+  (function (D, M) {
+    const icon = M.icon, esc = M.esc;
+    document.getElementById('printBtn').innerHTML = icon('print') + 'Imprimir / salvar PDF';
+    document.getElementById('backBtn').innerHTML = icon('back') + 'Versão interativa';
+    const order = D.floors.map(f => f.id).slice().reverse(); // R, 3, 2, 1, G
+    const totemOf = f => Object.values(D.totems).find(t => t.f === f);
+    document.getElementById('jump').innerHTML = order.map(f => '<button onclick="document.getElementById(\'p-' + f + '\').scrollIntoView({behavior:\'smooth\'})">' + M.floorById(f).short + '</button>').join(' ');
+
+    const wrap = document.getElementById('wrap');
+    order.forEach(fid => {
+      const f = M.floorById(fid), t = totemOf(fid);
+      const us = D.units.filter(u => u.f === fid && M.isListed(u));
+      const byCat = {};
+      us.forEach(u => (byCat[u.cat] = byCat[u.cat] || []).push(u));
+      const legend = Object.keys(D.cats).filter(k => byCat[k]).map(k =>
+        '<h4><i style="background:' + D.cats[k].cor + '"></i>' + D.cats[k].nome + '</h4>' +
+        byCat[k].map(u => '<li><b style="background:' + D.cats[k].cor + '">' + u.code + '</b>' + esc(u.n) + (u.anchor ? ' ★' : '') + '</li>').join('')).join('');
+      const types = Array.from(new Set(D.amen.filter(a => a.f === fid).map(a => a.t)));
+      const serv = '<span><i class="red"></i>Você está aqui</span>' +
+        types.map(k => '<span><i>' + icon(D.amenTypes[k].icon) + '</i>' + D.amenTypes[k].nome + '</span>').join('') +
+        (D.refs.some(r => r.f === fid) ? '<span><i class="go">' + icon('leaf') + '</i>Ponto de referência</span>' : '') +
+        (us.some(u => u.anchor) ? '<span><i class="go">' + icon('star') + '</i>Loja âncora</span>' : '');
+      const corte = order.map(o => '<div class="' + (o === fid ? 'on' : '') + '"><b>' + M.floorById(o).short + '</b>' + esc(M.floorById(o).tema) + '</div>').join('');
+      const el = document.createElement('section');
+      el.className = 'placa'; el.id = 'p-' + fid;
+      el.innerHTML =
+        '<header class="p-head"><img src="assets/img/simbolo.png" alt=""><div class="t"><b>Mercado de Origem</b><small>Design · Gastronomia · Cultura</small></div><div class="num">' + f.short + '</div></header>' +
+        '<div class="p-title"><div class="k">Você está no</div><h2>' + esc(f.nome).replace('&amp;', '<em>&amp;</em>') + '</h2><p>' + esc(f.tema) + '</p></div>' +
+        '<div class="p-map">' + M.render(fid, { numbers: true }) + '</div>' +
+        '<div class="p-body"><ul class="lg">' + legend + '</ul><div class="bottom"><div><h4>Legenda</h4><div class="serv">' + serv + '</div></div><div><h4>Ocupação do prédio</h4><div class="corte">' + corte + '</div></div></div></div>' +
+        '<footer class="p-foot"><span><b>Mapa ilustrativo</b> · simulação</span><span>Belo Horizonte · MG</span></footer>';
+      wrap.appendChild(el);
+      // "você está aqui"
+      if (t) {
+        el.querySelector('.layer-pin').innerHTML = '<circle cx="' + t.x + '" cy="' + t.y + '" r="17" fill="#e05a47" opacity=".25"/><circle cx="' + t.x + '" cy="' + t.y + '" r="10" fill="#e05a47" stroke="#fff" stroke-width="3.5"/>' +
+          '<g transform="translate(' + (t.x + 18) + ',' + (t.y - 13) + ')"><rect width="128" height="26" rx="13" fill="#1A2819"/><text x="64" y="17.5" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.6" fill="#F5EBDD">VOCÊ ESTÁ AQUI</text></g>';
+      }
+    });
+  })(window.MO_DATA, window.MO_MAP);
+  </script>
+</body>
+</html>
