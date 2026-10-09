@@ -1,7 +1,7 @@
 /* ==========================================================
    MERCADO DE ORIGEM · Mapa interativo · aplicação
    Parâmetros de URL:
-     ?totem=t1|t2|t3|tr|tg  -> em qual totem a tela está ("Você está aqui")
+     ?totem=t1|t2|t3|tr     -> em qual totem a tela está ("Você está aqui")
      ?modo=totem            -> volta à tela de descanso após 90 s sem uso
      ?loja=<id>             -> abre direto em uma loja (link compartilhado)
    ========================================================== */
@@ -117,7 +117,7 @@
       const i = ORDER.indexOf(el.dataset.f);
       el.classList.toggle('cur', i === c);
       if (S.mode === '3d') {
-        el.style.transform = 'translateZ(' + ((i - 2) * gap + (i === c ? S.k * 30 : 0)) + 'px)';
+        el.style.transform = 'translateZ(' + ((i - (ORDER.length - 1) / 2) * gap + (i === c ? S.k * 30 : 0)) + 'px)';
         el.style.opacity = 1;
       } else {
         el.style.transform = 'translateZ(' + (i === c ? 0 : (i > c ? gap * 1.4 : -gap * 1.2)) + 'px)';
@@ -153,7 +153,7 @@
     const fh = $('#floorhead'), f = M.floorById(S.floor);
     fh.classList.remove('swap'); void fh.offsetWidth; fh.classList.add('swap');
     if (S.mode === '3d') {
-      fh.innerHTML = '<div class="fh-k">Vista do prédio</div><h2>Seis pavimentos, <em>um destino</em></h2><p>Toque em um andar para entrar na planta.</p>';
+      fh.innerHTML = '<div class="fh-k">Vista do prédio</div><h2>Do mercado ao rooftop, <em>um destino</em></h2><p>Toque em um andar para entrar na planta.</p>';
     } else {
       fh.innerHTML = '<div class="fh-k">' + (S.floor === TOTEM.f ? 'Você está no' : 'Explorando o') + '</div><h2>' + floorHTML(S.floor) + '</h2><p>' + esc(f.tema) + '</p>';
     }

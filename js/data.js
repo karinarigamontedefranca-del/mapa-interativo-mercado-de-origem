@@ -23,7 +23,6 @@ window.MO_DATA = (function () {
 
   /* Andares, de baixo para cima */
   const floors = [
-    { id: 'g', short: 'G',  nome: 'Estacionamento', tema: 'Valet, vagas e acesso aos elevadores' },
     { id: '1', short: '1º', nome: '1º Andar & Deck', tema: 'Mercado, gastronomia, artesanato, feiras e festivais' },
     { id: '2', short: '2º', nome: '2º Andar', tema: 'Design & Decor · móveis, decoração e moda' },
     { id: '3', short: '3º', nome: '3º Andar', tema: 'Design & Decor · salões de eventos' },
@@ -84,10 +83,10 @@ window.MO_DATA = (function () {
       n: 'Smart Fit', tag: 'Academia', img: 'smartfit',
       d: 'Academia com musculação e aeróbico, para encaixar o treino na rotina antes ou depois das compras.',
       kw: 'academia treino musculação ginástica fitness' },
-    { id: 'contorno', f: '1', x: 755, y: M, w: 185, h: MH, cat: 'servicos', anchor: true,
-      n: 'Contorno do Corpo', tag: 'Academia & estúdio', img: 'contorno',
-      d: 'Estúdio de treino com acompanhamento próximo, cercado pelo verde do átrio.',
-      kw: 'academia estúdio pilates treino funcional' },
+    { id: 'museu', f: '1', x: 755, y: M, w: 185, h: MH, cat: 'cultura',
+      n: 'Museu das Reduções', tag: 'Museu de miniaturas', ig: 'museudasreducoes',
+      d: 'Miniaturas que contam a história e a arquitetura de Minas em escala reduzida. Ótimo programa para as crianças.',
+      kw: 'museu miniatura cultura história passeio criança' },
     { id: 'farmacia', f: '1', x: 60, y: B, w: 110, h: BH, cat: 'servicos', anchor: true,
       n: 'Farmácia', tag: 'Saúde & bem-estar', img: 'farmacia',
       d: 'Medicamentos, dermocosméticos e cuidados do dia a dia.',
@@ -112,22 +111,15 @@ window.MO_DATA = (function () {
       n: 'Cava Zé Ribeiro', tag: 'Cachaçaria & bistrô', ig: 'cavazeribeiro', img: 'cava',
       d: 'Cachaças envelhecidas em barril e um bistrô para harmonizar. Do alambique à mesa.',
       kw: 'cachaça pinga bistrô bar alambique degustação' },
-    { id: 'voolivia', f: '1', x: 700, y: B, w: 90, h: BH, cat: 'cultura',
-      n: 'Vó Olívia', tag: 'Artesanato mineiro', ig: 'emporiovoolivia',
-      d: 'Artesanato mineiro feito à mão: peças de cozinha, decoração e presentes com memória afetiva.',
-      kw: 'artesanato presente decoração mineiro feito à mão' },
-    { id: 'cadim', f: '1', x: 790, y: B, w: 70, h: BH, cat: 'cultura',
+    { id: 'cadim', f: '1', x: 700, y: B, w: 80, h: BH, cat: 'cultura',
       n: 'Cadim Cultural', tag: 'Discos & cultura', ig: 'cadinhocultural', img: 'cadim',
       d: 'Discos de vinil, música e programação cultural com DJs no Mercado.',
       kw: 'disco vinil música dj cultura' },
-    { id: 'correios', f: '1', x: 860, y: B, w: 40, h: BH, cat: 'servicos',
-      n: 'Correios', tag: 'Agência', ig: 'correiosoficial',
-      d: 'Agência dos Correios para envios e retiradas sem sair do Mercado.',
-      kw: 'correio envio encomenda carta sedex' },
-    { id: 'sicoob', f: '1', x: 900, y: B, w: 40, h: BH, cat: 'servicos',
-      n: 'Sicoob', tag: 'Agência & caixa', ig: 'sicoob',
-      d: 'Agência da cooperativa de crédito, com caixa de autoatendimento.',
-      kw: 'banco caixa eletrônico dinheiro saque agência' },
+
+    { id: 'kids', f: '1', x: 780, y: B, w: 160, h: BH, cat: 'servicos',
+      n: 'Espaço Kids', tag: 'Aventura Kids', ig: 'espaco.aventurakidsbh',
+      d: 'Espaço de brincar para as crianças enquanto a família aproveita o Mercado.',
+      kw: 'criança kids brinquedoteca infantil brincar festa' },
 
     /* ---- DECK ---- */
     { id: 'pingaefrita', f: '1', x: 120, y: 612, w: 115, h: 78, cat: 'restaurante', deck: true,
@@ -146,7 +138,11 @@ window.MO_DATA = (function () {
       n: 'O Pescador', tag: 'Peixes & frutos do mar', ig: 'pescador_bh', img: 'pescador',
       d: 'Moquecas, peixes e frutos do mar servidos na panela de barro.',
       kw: 'peixe frutos do mar moqueca camarão restaurante almoço' },
-    { id: 'feiras', f: '1', x: 590, y: 600, w: 290, h: 90, kind: 'zona', cat: 'eventos', deck: true,
+    { id: 'vemproride', f: '1', x: 780, y: 612, w: 100, h: 78, deck: true, cat: 'servicos',
+      n: 'Vem Pro Ride', tag: 'Agência de motos', ig: 'vemproride',
+      d: 'Agência de viagens e passeios de moto: roteiros, encontros e a comunidade de motociclistas.',
+      kw: 'moto motocicleta viagem passeio rota' },
+    { id: 'feiras', f: '1', x: 590, y: 600, w: 180, h: 90, kind: 'zona', cat: 'eventos', deck: true,
       n: 'Área de Feiras & Festivais', tag: 'Deck · programação especial', img: 'atrio',
       d: 'Espaço do deck que recebe feiras, festivais e expositores convidados ao longo do ano.',
       kw: 'feira festival evento expositor artesanato' },
@@ -162,10 +158,6 @@ window.MO_DATA = (function () {
       kw: 'planta vaso jardim paisagismo suculenta verde' },
     { id: 'eb21', f: '2', x: 780, y: T, w: 160, h: TH, cat: 'embreve', n: 'Em breve', tag: 'Nova operação · Design & Decor' },
     { id: 'wc2', f: '2', kind: 'wc', x: 60, y: M, w: 185, h: MH, n: 'Sanitários' },
-    { id: 'museu', f: '2', x: 755, y: M, w: 185, h: MH, cat: 'cultura',
-      n: 'Museu das Reduções', tag: 'Museu de miniaturas', ig: 'museudasreducoes',
-      d: 'Miniaturas que contam a história e a arquitetura de Minas em escala reduzida. Ótimo programa para as crianças.',
-      kw: 'museu miniatura cultura história passeio criança' },
     { id: 'floresca', f: '2', x: 60, y: B, w: 120, h: BH, cat: 'cultura',
       n: 'Floresça', tag: 'Moda feminina', ig: 'floresca_conceito',
       d: 'Moda feminina autoral, com peças leves e cheias de personalidade.',
@@ -178,27 +170,29 @@ window.MO_DATA = (function () {
       n: 'Super Color', tag: 'Estamparia', ig: 'lojasupercolor',
       d: 'Estamparia e personalização em tecidos para casa, eventos e marcas.',
       kw: 'estamparia tecido personalizado estampa camiseta' },
-    { id: 'vemproride', f: '2', x: 410, y: B, w: 150, h: BH, cat: 'servicos',
-      n: 'Vem Pro Ride', tag: 'Agência de motos', ig: 'vemproride',
-      d: 'Agência de viagens e passeios de moto: roteiros, encontros e a comunidade de motociclistas.',
-      kw: 'moto motocicleta viagem passeio rota' },
+    { id: 'voolivia', f: '2', x: 410, y: B, w: 150, h: BH, cat: 'cultura',
+      n: 'Vó Olívia', tag: 'Artesanato mineiro', ig: 'emporiovoolivia',
+      d: 'Artesanato mineiro feito à mão: peças de cozinha, decoração e presentes com memória afetiva.',
+      kw: 'artesanato presente decoração mineiro feito à mão' },
     { id: 'eb22', f: '2', x: 560, y: B, w: 130, h: BH, cat: 'embreve', n: 'Em breve', tag: 'Nova operação · Design & Decor' },
-    { id: 'kids', f: '2', x: 690, y: B, w: 250, h: BH, cat: 'servicos',
-      n: 'Espaço Kids', tag: 'Aventura Kids', ig: 'espaco.aventurakidsbh',
-      d: 'Espaço de brincar para as crianças enquanto a família aproveita o Mercado.',
-      kw: 'criança kids brinquedoteca infantil brincar festa' },
+
+    { id: 'correios', f: '2', x: 690, y: B, w: 125, h: BH, cat: 'servicos',
+      n: 'Correios', tag: 'Agência', ig: 'correiosoficial',
+      d: 'Agência dos Correios para envios e retiradas sem sair do Mercado.',
+      kw: 'correio envio encomenda carta sedex' },
+    { id: 'sicoob', f: '2', x: 815, y: B, w: 125, h: BH, cat: 'servicos',
+      n: 'Sicoob', tag: 'Agência & caixa', ig: 'sicoob',
+      d: 'Agência da cooperativa de crédito, com caixa de autoatendimento.',
+      kw: 'banco caixa eletrônico dinheiro saque agência' },
+    { id: 'eb23', f: '2', x: 755, y: M, w: 185, h: MH, cat: 'embreve', n: 'Em breve', tag: 'Nova operação · Design & Decor' },
 
     /* ===================== 3º ANDAR ===================== */
-    { id: 'outlet', f: '3', x: 60, y: T, w: 300, h: TH, cat: 'decor',
+    { id: 'outlet', f: '3', x: 60, y: T, w: 480, h: TH, cat: 'decor',
       n: 'Outlet de Móveis', tag: 'Móveis com preço de outlet', ig: 'outletdemoveisbh',
       d: 'Móveis e peças de decoração com condições especiais de outlet.',
       kw: 'móveis outlet promoção sofá mesa cadeira decoração' },
-    { id: 'eb31', f: '3', x: 360, y: T, w: 200, h: TH, cat: 'embreve', n: 'Em breve', tag: 'Nova operação · Design & Decor' },
-    { id: 'eb32', f: '3', x: 560, y: T, w: 180, h: TH, cat: 'embreve', n: 'Em breve', tag: 'Nova operação · Design & Decor' },
-    { id: 'mfw', f: '3', x: 740, y: T, w: 200, h: TH, cat: 'cultura',
-      n: 'Minas Fashion Week', tag: 'Moda & desfiles', ig: 'minasfashionweekoficial',
-      d: 'Espaço da Minas Fashion Week, plataforma de moda mineira com desfiles e ativações.',
-      kw: 'moda desfile fashion estilista' },
+    { id: 'eb31', f: '3', x: 540, y: T, w: 200, h: TH, cat: 'embreve', n: 'Em breve', tag: 'Nova operação · Design & Decor' },
+    { id: 'eb32', f: '3', x: 740, y: T, w: 200, h: TH, cat: 'embreve', n: 'Em breve', tag: 'Nova operação · Design & Decor' },
     { id: 'wc3', f: '3', kind: 'wc', x: 60, y: M, w: 185, h: MH, n: 'Sanitários' },
     { id: 'hotel', f: '3', x: 755, y: M, w: 185, h: MH, cat: 'servicos',
       n: 'Hotel Fazenda Paciência', tag: 'Hospedagem', ig: 'hotelfazendapaciencia',
@@ -240,16 +234,6 @@ window.MO_DATA = (function () {
       d: 'O ponto mais alto do Mercado, com vista para o eixo da BR-040 e o pôr do sol.',
       kw: 'mirante vista pôr do sol foto' },
 
-    /* ===================== ESTACIONAMENTO ===================== */
-    { id: 'vagas1', f: 'g', kind: 'vagas', x: 60, y: T, w: 880, h: TH, n: 'Vagas' },
-    { id: 'vagas2', f: 'g', kind: 'vagas', x: 60, y: B, w: 880, h: BH, n: 'Vagas' },
-    { id: 'valet', f: 'g', x: 60, y: M, w: 185, h: MH, cat: 'servicos',
-      n: 'Valet & Recepção', tag: 'Atendimento ao cliente', img: 'fachadadia',
-      d: 'Deixe o carro com o valet e suba direto pelos elevadores. São 350 vagas próprias.',
-      kw: 'valet estacionamento carro vaga manobrista' },
-    { id: 'pcd', f: 'g', x: 755, y: M, w: 185, h: MH, cat: 'servicos',
-      n: 'Vagas PCD & 60+', tag: 'Vagas preferenciais', d: 'Vagas preferenciais próximas aos elevadores.',
-      kw: 'vaga pcd idoso preferencial deficiente' }
   ];
 
   /* ---------- SERVIÇOS DO PRÉDIO (ícones) ---------- */
@@ -267,7 +251,7 @@ window.MO_DATA = (function () {
 
   const amen = [];
   const add = (f, t, x, y, extra) => amen.push(Object.assign({ f, t, x, y }, extra || {}));
-  ['g', '1', '2', '3', 'r'].forEach(f => { add(f, 'elevador', 670, 310); add(f, 'escada', 500, 310); });
+  ['1', '2', '3', 'r'].forEach(f => { add(f, 'elevador', 670, 310); add(f, 'escada', 500, 310); });
   // 1º andar
   add('1', 'wc', 85, 100); add('1', 'pcd', 85, 135); add('1', 'fraldario', 85, 170);
   add('1', 'bebedouro', 300, 390); add('1', 'bebedouro', 710, 230);
@@ -277,14 +261,11 @@ window.MO_DATA = (function () {
   // 2º e 3º
   ['2', '3'].forEach(f => {
     add(f, 'wc', 110, 310); add(f, 'pcd', 152, 310); add(f, 'fraldario', 194, 310);
-    add(f, 'bebedouro', 300, 390); add(f, 'pet', 710, 230);
+    add(f, 'bebedouro', 300, 390); add(f, 'pet', 930, 230);
   });
   // rooftop
   add('r', 'wc', 805, 310); add('r', 'pcd', 847, 310); add('r', 'fraldario', 889, 310);
   add('r', 'bebedouro', 730, 390); add('r', 'pet', 300, 230);
-  // estacionamento
-  add('g', 'entrada', 40, 230, { label: 'Entrada de veículos' });
-  add('g', 'valet', 220, 285);
 
   /* ---------- PONTOS DE REFERÊNCIA ---------- */
   const refs = [
@@ -296,7 +277,7 @@ window.MO_DATA = (function () {
       d: 'Do guarda-corpo dá para ver o jardim vertical e a praça lá embaixo. Use as passarelas para cruzar o átrio.' },
     { id: 'jardim3', f: '3', x: 390, y: 310, icon: 'leaf', n: 'Jardim Vertical', img: 'rodape',
       d: 'Vista do alto do átrio, com o verde pendente e a claraboia logo acima.' },
-    { id: 'deck', f: '1', x: 900, y: 655, icon: 'sun', n: 'Deck & Pergolado', img: 'atrio',
+    { id: 'deck', f: '1', x: 935, y: 612, icon: 'sun', n: 'Deck & Pergolado', img: 'atrio',
       d: 'Área ao ar livre com mesas, restaurantes e a área de feiras. Acesso pela passagem central do 1º andar.' },
     { id: 'claraboia', f: 'r', x: 390, y: 310, icon: 'sun', n: 'Claraboia do Átrio', img: 'galeria',
       d: 'A claraboia ilumina o átrio de cima a baixo. Em volta dela fica a arena com teto retrátil.' }
@@ -308,8 +289,7 @@ window.MO_DATA = (function () {
     t1: { f: '1', x: 80, y: 230, n: 'Entrada principal' },
     t2: { f: '2', x: 560, y: 230, n: 'Hall do 2º andar' },
     t3: { f: '3', x: 560, y: 230, n: 'Hall do 3º andar' },
-    tr: { f: 'r', x: 620, y: 230, n: 'Chegada ao rooftop' },
-    tg: { f: 'g', x: 300, y: 230, n: 'Estacionamento' }
+    tr: { f: 'r', x: 620, y: 230, n: 'Chegada ao rooftop' }
   };
 
   /* ---------- CORREDORES (rede de caminhos para as rotas) ---------- */

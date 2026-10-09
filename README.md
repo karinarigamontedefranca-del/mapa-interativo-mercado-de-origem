@@ -10,7 +10,7 @@ Simulação do totem de sinalização e navegação do Mercado de Origem (Belo H
 
 ## O que o mapa faz
 - Tela de boas-vindas com fotos do Mercado. No modo totem, ela volta sozinha após 90 s sem uso.
-- Troca de andar (G, 1º + Deck, 2º, 3º, Rooftop) com transição em 3D, além da **vista 3D do prédio inteiro**.
+- Troca de andar (1º + Deck, 2º, 3º, Rooftop) com transição em 3D, além da **vista 3D do prédio inteiro**.
 - Busca por nome, produto ou palavra-chave (ex.: "queijo", "cachaça", "pet", "banheiro").
 - Filtros por categoria e por serviços do prédio: sanitários, elevadores, bebedouros, água para pets, fraldário e sanitário acessível.
 - Ficha da loja com foto, descrição, andar, número e ponto de referência próximo, mais Instagram, link para compartilhar e **"Como chegar daqui"**.
@@ -22,7 +22,7 @@ Simulação do totem de sinalização e navegação do Mercado de Origem (Belo H
 | URL | Efeito |
 |---|---|
 | `/?totem=t1` | Totem da entrada principal (1º andar). Também liga o modo totem. |
-| `/?totem=t2`, `t3`, `tr`, `tg` | Totem do 2º andar, do 3º andar, do rooftop e do estacionamento |
+| `/?totem=t2`, `t3`, `tr` | Totem do 2º andar, do 3º andar e do rooftop |
 | `/?modo=totem` | Liga a volta automática à tela inicial |
 | `/?loja=maturei` | Abre direto na ficha de uma loja (é o link do botão "Compartilhar") |
 
